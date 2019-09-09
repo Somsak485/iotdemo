@@ -22,9 +22,21 @@
     <script type="text/javascript">
       $( document ).ready(function(){
         $("#btn").click(function(){
-            alert(555);
+             var url ="https://api.thingspeak.com/channels/860699/feeds.json?results=50";
+                $.ajax(
+                    {
+
+                    url: url, 
+                    type: 'get', 
+                    dataType: 'json',
+                    success: function(feedback){
+                        alert(JSON.stringify(feedback.feeds));
+                                            
+                    }          
+                });
+            
         });
-      })
+      });
     </script>
   </body>
 </html>
